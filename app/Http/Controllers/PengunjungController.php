@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Layanan;
 
 class PengunjungController extends Controller
 {
@@ -22,10 +23,12 @@ class PengunjungController extends Controller
     }
 
     public function layanan()
-
     {
+        $layanan = Layanan::paginate();
 
-        return view('pengunjung.layanan');
+        return view('pengunjung.layanan', [
+            'layanan' => $layanan
+        ]);
     }
 
     public function dokter()

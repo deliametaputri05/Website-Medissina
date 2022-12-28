@@ -15,12 +15,13 @@
 
         <div class="row">
             <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative">
+                <img src="../img/logo.png" alt="" width="200px">
                 <!-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a> -->
             </div>
 
             <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
                 <h3>Tentang Kami</h3>
-                <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima temporibus laudantium. Soluta voluptate sed facere corporis dolores excepturi. Libero laboriosam sint et id nulla tenetur. Suscipit aut voluptate.</p>
+                <p>Klinik Utama Medissina Lohbener merupakan salah satu unit layanan kesehatan yang berada di Indramayu. Klinik berdiri pada tahun 2004 dan menyediakan pelayanan IDG 24 jam, Apotek, Radiologi, Laboratorium, pelayanan rawat jalan (umum dan spesialis), dan rawat inap.</p>
 
                 <div class="icon-box">
                     <div class="icon"><i class="bx bx-fingerprint"></i></div>

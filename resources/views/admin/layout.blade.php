@@ -7,107 +7,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="assets/img/logo.png" rel="icon">
+    <link href="{{URL::asset('assets/img/logo.png')}}" rel="icon">
     <title>@yield('title')</title>
-    <link href="assets/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/admin/css/ruang-admin.min.css" rel="stylesheet">
+    <link href="{{URL::asset('assets/admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{URL::asset('assets/admin/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{URL::asset('assets/admin/css/ruang-admin.min.css')}}" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link href="{{URL::asset('assets/admin/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 </head>
 
 <body id="page-top">
     <div id="wrapper">
         <!-- Sidebar -->
         <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                 <div class="sidebar-brand-icon">
-                    <img src="assets/img/logo.png">
+                    <img src="{{URL::asset('assets/img/logo.png')}}">
                 </div>
                 <div class="sidebar-brand-text mx-2">{{ Auth::user()->name }}</div>
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
             <hr class="sidebar-divider">
             <div class="sidebar-heading">
-                Features
+                Menu Master
             </div>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap" aria-expanded="true" aria-controls="collapseBootstrap">
-                    <i class="far fa-fw fa-window-maximize"></i>
-                    <span>Bootstrap UI</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#layanan" aria-expanded="true" aria-controls="layanan">
+                    <i class="fas fa-stethoscope"></i>
+                    <span>Layanan</span>
                 </a>
-                <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+                <div id="layanan" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Bootstrap UI</h6>
-                        <a class="collapse-item" href="alerts.html">Alerts</a>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="dropdowns.html">Dropdowns</a>
-                        <a class="collapse-item" href="modals.html">Modals</a>
-                        <a class="collapse-item" href="popovers.html">Popovers</a>
-                        <a class="collapse-item" href="progress-bar.html">Progress Bars</a>
+                        <h6 class="collapse-header">Layanan</h6>
+                        <a class="collapse-item" href="/addLayanan">Tambah Layanan</a>
+                        <a class="collapse-item" href="/dataLayanan">Data Layanan</a>
                     </div>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true" aria-controls="collapseForm">
-                    <i class="fab fa-fw fa-wpforms"></i>
-                    <span>Forms</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#poli" aria-expanded="true" aria-controls="poli">
+                    <i class="fas fa-clinic-medical"></i>
+                    <span>Poliklinik</span>
                 </a>
-                <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                <div id="poli" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Forms</h6>
-                        <a class="collapse-item" href="form_basics.html">Form Basics</a>
-                        <a class="collapse-item" href="form_advanceds.html">Form Advanceds</a>
+                        <h6 class="collapse-header">Poliklinik</h6>
+                        <a class="collapse-item" href="#">Tambah Poli</a>
+                        <a class="collapse-item" href="#">Data Poli</a>
                     </div>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true" aria-controls="collapseTable">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#dokter" aria-expanded="true" aria-controls="dokter">
+                    <i class="fas fa-user-md"></i>
+                    <!-- <i class="fa-solid fa-user-doctor-hair"></i> -->
+                    <span>Dokter</span>
                 </a>
-                <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+                <div id="dokter" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Tables</h6>
-                        <a class="collapse-item" href="simple-tables.html">Simple Tables</a>
-                        <a class="collapse-item" href="datatables.html">DataTables</a>
+                        <h6 class="collapse-header">Dokter</h6>
+                        <a class="collapse-item" href="#">Tambah Dokter</a>
+                        <a class="collapse-item" href="#">Data Dokter</a>
                     </div>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="ui-colors.html">
-                    <i class="fas fa-fw fa-palette"></i>
-                    <span>UI Colors</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#mcu" aria-expanded="true" aria-controls="mcu">
+                    <i class="fas fa-file-medical"></i>
+                    <span>MCU</span>
                 </a>
+                <div id="mcu" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">MCU</h6>
+                        <a class="collapse-item" href="#">Tambah MCU</a>
+                        <a class="collapse-item" href="#">Data MCU</a>
+                    </div>
+                </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#testi" aria-expanded="true" aria-controls="testi">
+                    <i class="fas fa-comment-alt"></i>
+                    <span>Testimoni</span>
+                </a>
+                <div id="testi" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Testimoni</h6>
+                        <a class="collapse-item" href="#">Tambah Testimoni</a>
+                        <a class="collapse-item" href="#">Data Testimoni</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#kontak" aria-expanded="true" aria-controls="kontak">
+                    <i class="fas fa-address-book"></i>
+                    <span>Kontak</span>
+                </a>
+                <div id="kontak" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Testimoni</h6>
+                        <a class="collapse-item" href="#">Tambah Kontak</a>
+                        <a class="collapse-item" href="#">Data Kontak</a>
+                    </div>
+                </div>
+            </li>
+
             <hr class="sidebar-divider">
             <div class="sidebar-heading">
-                Examples
+                Pendaftaran
             </div>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="true" aria-controls="collapsePage">
-                    <i class="fas fa-fw fa-columns"></i>
-                    <span>Pages</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pasien" aria-expanded="true" aria-controls="pasien">
+                    <i class="fas fa-users"></i>
+                    <span>Pasien</span>
                 </a>
-                <div id="collapsePage" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
+                <div id="pasien" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Example Pages</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        <h6 class="collapse-header">Pasien</h6>
+                        <a class="collapse-item" href="login.html">Data Pasien</a>
+
                     </div>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#daftar" aria-expanded="true" aria-controls="daftar">
+                    <i class="fas fa-file-contract"></i>
+                    <span>Daftar Berobat</span>
                 </a>
+                <div id="daftar" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Daftar Berobat</h6>
+                        <a class="collapse-item" href="login.html">Data Pendaftaran</a>
+
+                    </div>
+                </div>
             </li>
+
             <hr class="sidebar-divider">
             <div class="version" id="version-ruangadmin"></div>
         </ul>
@@ -120,7 +159,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item dropdown no-arrow">
+                        <!-- <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
@@ -136,7 +175,7 @@
                                     </div>
                                 </form>
                             </div>
-                        </li>
+                        </li> -->
 
 
 
@@ -146,7 +185,7 @@
                                 <img class="img-profile rounded-circle" src="{{ Auth::user()->profile_photo_url }}" style="max-width: 60px">
                                 <span class="ml-2 d-none d-lg-inline text-white small">{{ Auth::user()->name }}</span>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <div class=" dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <!-- <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
@@ -171,10 +210,35 @@
                 <!-- Topbar -->
 
                 @yield('container')
+                <!-- Modal Logout -->
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabelLogout">Ohh No!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to logout?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a href="{{ route('logout') }}" class="btn btn-primary" onclick="event.preventDefault();
+                                                            this.closest('form').submit();">Logout</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
                 <!-- Footer -->
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
+                <!-- <footer class="sticky-footer bg-white">
+                    <div class=" container my-auto">
                         <div class="copyright text-center my-auto">
                             <span>copyright &copy; <script>
                                     document.write(new Date().getFullYear());
@@ -193,7 +257,7 @@
                             </span>
                         </div>
                     </div>
-                </footer>
+                </footer> -->
                 <!-- Footer -->
             </div>
         </div>
@@ -203,12 +267,26 @@
             <i class="fas fa-angle-up"></i>
         </a>
 
-        <script src="assets/admin/vendor/jquery/jquery.min.js"></script>
-        <script src="assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
-        <script src="assets/admin/js/ruang-admin.min.js"></script>
-        <script src="assets/admin/vendor/chart.js/Chart.min.js"></script>
-        <script src="assets/admin/js/demo/chart-area-demo.js"></script>
+        <script src="{{URL::asset('assets/admin/vendor/jquery/jquery.min.js')}}"></script>
+        <script src="{{URL::asset('assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{URL::asset('assets/admin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+        <script src="{{URL::asset('assets/admin/js/ruang-admin.min.js')}}"></script>
+        <!-- <script src="{{URL::asset('assets/admin/vendor/chart.js/Chart.min.js')}}"></script> -->
+        <!-- <script src="{{URL::asset('assets/admin/js/demo/chart-area-demo.js')}}"></script> -->
+        <!-- <script src="https://kit.fontawesome.com/f490d4d699.js" crossorigin="anonymous"></script> -->
+
+
+        <!-- Page level plugins -->
+        <script src="{{URL::asset('assets/admin/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+        <script src="{{URL::asset('assets/admin/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+
+        <!-- Page level custom scripts -->
+        <script>
+            $(document).ready(function() {
+                $('#dataTable').DataTable(); // ID From dataTable 
+                $('#dataTableHover').DataTable(); // ID From dataTable with Hover
+            });
+        </script>
 </body>
 
 </html>

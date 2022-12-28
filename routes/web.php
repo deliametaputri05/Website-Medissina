@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PengunjungController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\admin\LayananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,17 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('dashboard');
+
     Route::resource('user', UserController::class);
+    Route::get('editLayanan/{id}', [LayananController::class, 'edit'])->name('layanan.edit');
+    Route::get('/edit/{id}', function () {
+        return view('admin.layanan.edit');
+    });
+    Route::resource('dataLayanan', LayananController::class);
+
+
+    Route::get('addLayanan', [LayananController::class, 'create'])->name('layanan.create');
+    Route::post('updateLayanan/{id}', [LayananController::class, 'update'])->name('layanan.update');
 });
 
 

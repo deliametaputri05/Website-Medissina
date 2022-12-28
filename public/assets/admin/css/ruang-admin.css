@@ -1802,6 +1802,7 @@ a:focus {
 }
 
 footer.sticky-footer {
+ 
   padding: 2rem 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
