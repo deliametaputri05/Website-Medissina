@@ -1,6 +1,6 @@
 @extends('../admin.layout')
 
-@section('title', 'Master | Layanan')
+@section('title', 'Master | MCU')
 
 @section('container')
 
@@ -8,10 +8,10 @@
 <!-- Container Fluid-->
 <div class="container-fluid" id="container-wrapper">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Layanan</h1>
+        <h1 class="h3 mb-0 text-gray-800">Medical Check Up</h1>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="./">Home</a></li>
-            <li class="breadcrumb-item">Layanan</li>
+            <li class="breadcrumb-item">MCU</li>
             <li class="breadcrumb-item active" aria-current="page">Data Layanan</li>
         </ol>
     </div>
@@ -19,7 +19,7 @@
     <!-- DataTable with Hover -->
     <div class="col-lg-12">
         <div>
-            <a href="{{ route('dataLayanan.create')}}" class="btn btn-primary btn-icon-split">
+            <a href="{{ route('dataMcu.create')}}" class="btn btn-primary btn-icon-split">
                 <span class="icon text-white-50">
                     <i class="fas fa-plus"></i>
                 </span>
@@ -39,8 +39,9 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th>Deskripsi</th>
                             <th>Gambar</th>
+                            <th>Harga</th>
+                            <th>Layanan</th>
                             <th>Aksi</th>
 
                         </tr>
@@ -55,15 +56,11 @@
                         </tr>
                     </tfoot> -->
                     <tbody>
-                        @forelse ($layanan as $item)
+                        @forelse ($mcu as $item)
                         <tr>
-                            <td>{{ $layanan->count() * ($layanan->currentPage() - 1) + $loop->iteration }}</td>
+                            <td>{{ $mcu->count() * ($mcu->currentPage() - 1) + $loop->iteration }}</td>
                             <td>{{ $item->nama }}</td>
-                            <td>
-                                <center>
-                                    <div style="width: 300px; white-space: normal; overflow: hidden; text-overflow: ellipsis;">{{ $item->deskripsi }}</div>
-                                </center>
-                            </td>
+
                             <td>
                                 <!-- <br> -->
                                 <center>
@@ -76,16 +73,22 @@
                                 <br>
                                 <br>
                             </td>
+                            <td>{{ $item->harga }}</td>
+                            <td>
+                                <center>
+                                    <div style="width: 300px; white-space: pre-line; overflow: hidden; text-overflow: ellipsis; text-align: left;">{{ $item->layanan }}</div>
+                                </center>
+                            </td>
                             <td>
                                 <div class="row align-items-center" style="display: inline-flex;">
 
 
 
-                                    <a href="{{ route('dataLayanan.edit', $item->id) }}" class="btn btn-info btn-sm mr-1">
+                                    <a href="{{ route('dataMcu.edit', $item->id) }}" class="btn btn-info btn-sm mr-1">
                                         <i class="fas fa-edit"></i>
                                     </a>
 
-                                    <form action="{{ route('dataLayanan.destroy', $item->id) }}" method="POST">
+                                    <form action="{{ route('dataMcu.destroy', $item->id) }}" method="POST">
                                         {!! method_field('delete') . csrf_field() !!}
                                         <button type="submit" data-toggle="tooltip" title="" class="btn btn-danger btn-sm" data-original-title="Delete">
                                             <!-- onclick="return initDemos('.alert_demo_7')"    -->

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LayananRequest extends FormRequest
+class McuRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +27,8 @@ class LayananRequest extends FormRequest
         return [
 
             'nama' => 'required|string',
-            'deskripsi' => 'required|string',
+            'layanan' => 'required|string',
+            'harga' => 'required|int',
             'gambar' => 'image',
 
         ];

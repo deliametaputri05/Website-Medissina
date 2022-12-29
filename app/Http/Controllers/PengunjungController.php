@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Layanan;
+use App\Models\Mcu;
 
 class PengunjungController extends Controller
 {
@@ -28,6 +29,15 @@ class PengunjungController extends Controller
 
         return view('pengunjung.layanan', [
             'layanan' => $layanan
+        ]);
+    }
+
+    public function mcu()
+    {
+        $mcu = Mcu::paginate();
+
+        return view('pengunjung.mcu', [
+            'mcu' => $mcu
         ]);
     }
 

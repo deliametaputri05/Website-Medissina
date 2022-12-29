@@ -26,7 +26,7 @@
                     <div class="icon-box">
 
                         <!-- <div class="card-img-top"><img src="storage/{{ $item->gambar }}" alt="..." style="max-width: 200px"></div> -->
-                        <h4><a href="">{{ $item->nama }}</a></h4>
+                        <h4><a>{{ $item->nama }}</a></h4>
                         <p>{{ $item->deskripsi }}</p>
                     </div>
 

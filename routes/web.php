@@ -6,6 +6,7 @@ use App\Http\Controllers\PengunjungController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\LayananController;
+use App\Http\Controllers\admin\McuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,15 +33,8 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('user', UserController::class);
-    Route::get('editLayanan/{id}', [LayananController::class, 'edit'])->name('layanan.edit');
-    Route::get('/edit/{id}', function () {
-        return view('admin.layanan.edit');
-    });
     Route::resource('dataLayanan', LayananController::class);
-
-
-    Route::get('addLayanan', [LayananController::class, 'create'])->name('layanan.create');
-    Route::post('updateLayanan/{id}', [LayananController::class, 'update'])->name('layanan.update');
+    Route::resource('dataMcu', McuController::class);
 });
 
 
@@ -49,6 +43,7 @@ Route::get('/tentang', [PengunjungController::class, 'tentang']);
 Route::get('/layanan', [PengunjungController::class, 'layanan']);
 Route::get('/dokter', [PengunjungController::class, 'dokter']);
 Route::get('/kontak', [PengunjungController::class, 'kontak']);
+Route::get('/mcu', [PengunjungController::class, 'mcu']);
 
 
 

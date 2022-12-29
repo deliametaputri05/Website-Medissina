@@ -44,8 +44,8 @@
                 <div id="layanan" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Layanan</h6>
-                        <a class="collapse-item" href="/addLayanan">Tambah Layanan</a>
-                        <a class="collapse-item" href="/dataLayanan">Data Layanan</a>
+                        <a class="collapse-item" href="{{ route('dataLayanan.create')}}">Tambah Layanan</a>
+                        <a class="collapse-item" href="{{ route('dataLayanan.index')}}">Data Layanan</a>
                     </div>
                 </div>
             </li>
@@ -84,8 +84,8 @@
                 <div id="mcu" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">MCU</h6>
-                        <a class="collapse-item" href="#">Tambah MCU</a>
-                        <a class="collapse-item" href="#">Data MCU</a>
+                        <a class="collapse-item" href="{{ route('dataMcu.create')}}">Tambah MCU</a>
+                        <a class="collapse-item" href="{{ route('dataMcu.index')}}">Data MCU</a>
                     </div>
                 </div>
             </li>
