@@ -5,10 +5,11 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Requests\McuRequest;
-use App\Models\Mcu;
+use App\Http\Requests\DokterRequest;
+use App\Models\Dokter;
+use App\Models\Poli;
 
-class McuController extends Controller
+class DokterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +18,10 @@ class McuController extends Controller
      */
     public function index()
     {
-        $mcu = Mcu::paginate();
+        $dokter = Dokter::with(['poli'])->paginate();
 
-        return view('admin.mcu.index', [
-            'mcu' => $mcu
+        return view('admin.dokter.index', [
+            'dokter' => $dokter
         ]);
     }
 
@@ -31,7 +32,8 @@ class McuController extends Controller
      */
     public function create()
     {
-        return view('admin.mcu.create');
+        $poli = Poli::all();
+        return view('admin.dokter.create', compact('poli'));
     }
 
     /**
@@ -40,16 +42,16 @@ class McuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(McuRequest $request)
+    public function store(DokterRequest $request)
     {
         $data = $request->all();
 
-        $data['gambar'] = $request->file('gambar')->store('assets/mcu', 'public');
+        $data['gambar'] = $request->file('gambar')->store('assets/dokter', 'public');
         // dd($data);
 
-        Mcu::create($data);
+        Dokter::create($data);
 
-        return redirect()->route('dataMcu.index');
+        return redirect()->route('dataDokter.index');
     }
 
     /**
@@ -71,10 +73,12 @@ class McuController extends Controller
      */
     public function edit($id)
     {
-        $mcu = Mcu::findOrFail($id);
+        $dokter = Dokter::findOrFail($id);
+        $poli = Poli::all();
 
-        return view('admin.mcu.edit', [
-            'item' => $mcu
+        return view('admin.dokter.edit', [
+            'item' => $dokter,
+            'poli' => $poli
         ]);
     }
 
@@ -85,20 +89,20 @@ class McuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(McuRequest $request, $id)
+    public function update(DokterRequest $request, $id)
     {
         $data = $request->all();
-        $mcu = Mcu::findOrFail($id);
+        $dokter = Dokter::findOrFail($id);
 
         if ($request->file('gambar')) {
-            $data['gambar'] = $request->file('gambar')->store('assets/mcu', 'public');
+            $data['gambar'] = $request->file('gambar')->store('assets/dokter', 'public');
         }
         if ($request->file(null)) {
         }
 
-        $mcu->update($data);
+        $dokter->update($data);
 
-        return redirect()->route('dataMcu.index');
+        return redirect()->route('dataDokter.index');
     }
 
     /**
@@ -109,9 +113,9 @@ class McuController extends Controller
      */
     public function destroy($id)
     {
-        $mcu = Mcu::findOrFail($id);
+        $dokter = Dokter::findOrFail($id);
 
-        $mcu->delete();
-        return redirect()->route('dataMcu.index');
+        $dokter->delete();
+        return redirect()->route('dataDokter.index');
     }
 }

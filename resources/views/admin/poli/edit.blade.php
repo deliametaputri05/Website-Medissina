@@ -1,6 +1,6 @@
 @extends('../admin.layout')
 
-@section('title', 'Edit Mcu')
+@section('title', 'Edit Poli')
 
 @section('container')
 
@@ -8,11 +8,11 @@
 <!-- Container Fluid-->
 <div class="container-fluid" id="container-wrapper">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Medical Check Up</h1>
+        <h1 class="h3 mb-0 text-gray-800">Poliklinik</h1>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item">{{ $item->nama }}</li>
-            <li class="breadcrumb-item active" aria-current="page">Edit Mcu</li>
+            <li class="breadcrumb-item active" aria-current="page">Edit Layanan</li>
         </ol>
     </div>
 
@@ -23,27 +23,22 @@
             <!-- Form Basic -->
             <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Form Edit Mcu</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Form Edit Poliklinik</h6>
                 </div>
                 <div class="card-body">
 
-                    <form class="w-full" action="{{ route('dataMcu.update', $item->id) }}" method="post" enctype="multipart/form-data">
+                    <form class="w-full" action="{{ route('dataPoli.update', $item->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('put')
 
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" class="form-control" id="nama" name="nama" value="{{ old('nama') ?? $item->nama }} " placeholder="Nama Mcu">
+                            <input type="text" class="form-control" id="nama" name="nama" value="{{ old('nama') ?? $item->nama }} " placeholder="Nama Layanan">
 
                         </div>
                         <div class="form-group">
-                            <label for="harga">Harga</label>
-                            <input type="text" class="form-control" id="harga" name="harga" value="{{ old('harga') ?? $item->harga }} " placeholder="Harga Mcu">
-
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Layanan</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" value="{{ old('layanan')  ?? $item->layanan }}" name="layanan" rows="5">{{ $item->layanan }}</textarea>
+                            <label for="exampleFormControlTextarea1">Deskripsi</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" value="{{ old('deskripsi')  ?? $item->deskripsi }}" name="deskripsi" rows="5">{{ $item->deskripsi }}</textarea>
                         </div>
 
                         <div class="form-group">
@@ -60,7 +55,7 @@
                         <div class="card-action">
 
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            <a href="/dataMcu" class="btn btn-danger" on>Cancel</a>
+                            <a href="/dataPoli" class="btn btn-danger" on>Cancel</a>
 
                         </div>
 

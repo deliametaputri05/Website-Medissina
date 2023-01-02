@@ -57,8 +57,8 @@
                 <div id="poli" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Poliklinik</h6>
-                        <a class="collapse-item" href="#">Tambah Poli</a>
-                        <a class="collapse-item" href="#">Data Poli</a>
+                        <a class="collapse-item" href="{{ route('dataPoli.create') }}">Tambah Poli</a>
+                        <a class="collapse-item" href="{{ route('dataPoli.index')}}">Data Poli</a>
                     </div>
                 </div>
             </li>
@@ -71,8 +71,8 @@
                 <div id="dokter" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Dokter</h6>
-                        <a class="collapse-item" href="#">Tambah Dokter</a>
-                        <a class="collapse-item" href="#">Data Dokter</a>
+                        <a class="collapse-item" href="{{route('dataDokter.create')}}">Tambah Dokter</a>
+                        <a class="collapse-item" href="{{route('dataDokter.index')}}">Data Dokter</a>
                     </div>
                 </div>
             </li>

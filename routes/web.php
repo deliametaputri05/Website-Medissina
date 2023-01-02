@@ -7,6 +7,8 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\LayananController;
 use App\Http\Controllers\admin\McuController;
+use App\Http\Controllers\admin\DokterController;
+use App\Http\Controllers\admin\PoliController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,13 +30,14 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('dashboard');
+
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
 
     Route::resource('user', UserController::class);
     Route::resource('dataLayanan', LayananController::class);
     Route::resource('dataMcu', McuController::class);
+    Route::resource('dataDokter', DokterController::class);
+    Route::resource('dataPoli', PoliController::class);
 });
 
 

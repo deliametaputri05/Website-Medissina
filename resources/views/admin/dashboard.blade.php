@@ -24,14 +24,14 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-uppercase mb-1">Dokter</div>
 
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">5 </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$dokter}}</div>
                             <div class="mt-2 mb-0 text-muted text-xs">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                                <span>Since last month</span>
+
+                                <span>Medissina</span>
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-primary"></i>
+                            <i class="fas fa-user-md fa-2x text-primary"></i>
                         </div>
                     </div>
                 </div>
@@ -44,10 +44,9 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-uppercase mb-1">Layanan</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">30</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$layanan}}</div>
                             <div class="mt-2 mb-0 text-muted text-xs">
-                                <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
-                                <span>Since last years</span>
+                                <span>Medissina</span>
                             </div>
                         </div>
                         <div class="col-auto">
@@ -64,10 +63,10 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-uppercase mb-1">Pendaftaran</div>
-                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">366</div>
+                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$daftar}}</div>
                             <div class="mt-2 mb-0 text-muted text-xs">
-                                <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 20.4%</span>
-                                <span>Since last month</span>
+
+                                <span>Medissina</span>
                             </div>
                         </div>
                         <div class="col-auto">
@@ -84,10 +83,10 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-uppercase mb-1">Testimoni</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$testi}}</div>
                             <div class="mt-2 mb-0 text-muted text-xs">
-                                <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span>
-                                <span>Since yesterday</span>
+
+                                <span>Medissina</span>
                             </div>
                         </div>
                         <div class="col-auto">
@@ -125,34 +124,6 @@
             </div>
         </div>
 
-        <!-- Modal Delete -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="labelDeleteModal" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="labelDeleteModal">Data Layanan</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Yakin menghapus data ini?</p>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
-                        <form action="{{ route('dataLayanan.destroy', $item->id)  }}" method="POST">
-                            {!! method_field('delete') . csrf_field() !!}
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                            <!-- <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="event.preventDefault();
-                                                            this.closest('form').submit();">Delete</button> -->
-                            <!-- <a href="{{ route('dataLayanan.destroy', $item->id) }}" class="btn btn-primary" onclick="event.preventDefault();
-                                                            this.closest('form').submit();">Delete</a> -->
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
     </div>

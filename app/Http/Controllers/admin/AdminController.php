@@ -5,6 +5,12 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Models\Layanan;
+use App\Models\Mcu;
+use App\Models\Poli;
+use App\Models\Dokter;
+use App\Models\Pendaftaran;
+use App\Models\Testimoni;
 
 class AdminController extends Controller
 {
@@ -16,7 +22,12 @@ class AdminController extends Controller
     public function index()
     {
         //
-        return view('admin.dashboard');
+        $layanan = Layanan::all()->count();
+        $dokter = Dokter::all()->count();
+        $poli = Poli::all()->count();
+        $testi = Testimoni::all()->count();
+        $daftar = Pendaftaran::all()->count();
+        return view('admin.dashboard', compact('layanan', 'dokter', 'poli', 'daftar', 'testi'));
     }
 
     /**

@@ -45,15 +45,15 @@
             <div class="contact-info d-flex align-items-center">
                 <i class="bi bi-envelope"></i> <a href="mailto:medissina.lohbener@gmail.com">medissina.lohbener@gmail.com</a>
                 <i class="bi bi-phone"></i>+6287727447216
-                <a href="{{ route('login') }}" class="p-3"><i class="bi bi-person"></i>Admin</a>
+                <a href="{{ route('login') }}" class="p-3" target="_blank"><i class="bi bi-person"></i>Admin</a>
 
             </div>
             <div class="d-none d-lg-flex social-links align-items-center">
-                <a href="#" class="twitter"><i class="bi bi-whatsapp"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-gmail"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+                <a href="https://wa.link/e21iaj" class="twitter" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                <a href="https://www.facebook.com/medi.sina.12914?mibextid=ZbWKwL" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://instagram.com/medissina.official?igshid=YmMyMTA2M2Y=" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+                <a href="mailto:medissina.lohbener@gmail.com" class="instagram" target="_blank"><i class="bx bxl-gmail"></i></a>
+                <a href="https://www.linkedin.com/in/klinik-utama-medissina-lohbener-a62b1725a" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></i></a>
             </div>
         </div>
     </div>
@@ -70,8 +70,8 @@
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
                     <li><a class="nav-link scrollto" href="/">Beranda</a></li>
-                    <li><a class="nav-link scrollto" href="/tentang">Tentang</a></li>
-                    <li><a class="nav-link scrollto" href="/layanan">Layanan</a></li>
+                    <!-- <li><a class="nav-link scrollto" href="/tentang">Tentang</a></li> -->
+                    <li><a class="nav-link scrollto" href="/layanan">Pelayanan</a></li>
                     <li><a class="nav-link scrollto" href="/mcu">MCU</a></li>
                     <!-- <li><a class="nav-link scrollto" href="/poliklinik">Poliklinik</a></li> -->
                     <li><a class="nav-link scrollto" href="/dokter">Dokter</a></li>
@@ -129,11 +129,11 @@
                     <div class="col-lg-4 col-md-6 footer-newsletter">
                         <br><br>
                         <div class="social-links text-center text-md-right pt-3 pt-md-0">
-                            <a href="#" class="twitter"><i class="bx bxl-whatsapp"></i></a>
-                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                            <a href="#" class="google-plus"><i class="bx bxl-gmail"></i></a>
-                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                            <a href="https://wa.link/e21iaj" class="twitter" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+                            <a href="https://www.facebook.com/medi.sina.12914?mibextid=ZbWKwL" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
+                            <a href="https://instagram.com/medissina.official?igshid=YmMyMTA2M2Y=" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
+                            <a href="mailto:medissina.lohbener@gmail.com" class="google-plus" target="_blank"><i class="bx bxl-gmail"></i></a>
+                            <a href="https://www.linkedin.com/in/klinik-utama-medissina-lohbener-a62b1725a" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
                         </div>
                         </p>
                     </div>
@@ -164,6 +164,7 @@
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>

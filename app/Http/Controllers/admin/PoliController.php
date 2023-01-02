@@ -5,10 +5,11 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Requests\McuRequest;
-use App\Models\Mcu;
+use App\Http\Requests\PoliRequest;
+use App\Models\Poli;
 
-class McuController extends Controller
+
+class PoliController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +18,10 @@ class McuController extends Controller
      */
     public function index()
     {
-        $mcu = Mcu::paginate();
+        $poli = Poli::paginate();
 
-        return view('admin.mcu.index', [
-            'mcu' => $mcu
+        return view('admin.poli.index', [
+            'poli' => $poli
         ]);
     }
 
@@ -31,7 +32,7 @@ class McuController extends Controller
      */
     public function create()
     {
-        return view('admin.mcu.create');
+        return view('admin.poli.create');
     }
 
     /**
@@ -40,16 +41,18 @@ class McuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(McuRequest $request)
+    public function store(PoliRequest $request)
     {
         $data = $request->all();
 
-        $data['gambar'] = $request->file('gambar')->store('assets/mcu', 'public');
+        $data['gambar'] = $request->file('gambar')->store('assets/poli', 'public');
         // dd($data);
 
-        Mcu::create($data);
+        Poli::create($data);
 
-        return redirect()->route('dataMcu.index');
+
+
+        return redirect()->route('dataPoli.index');
     }
 
     /**
@@ -71,10 +74,10 @@ class McuController extends Controller
      */
     public function edit($id)
     {
-        $mcu = Mcu::findOrFail($id);
+        $poli = Poli::findOrFail($id);
 
-        return view('admin.mcu.edit', [
-            'item' => $mcu
+        return view('admin.poli.edit', [
+            'item' => $poli
         ]);
     }
 
@@ -85,20 +88,19 @@ class McuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(McuRequest $request, $id)
+    public function update(PoliRequest $request, $id)
     {
         $data = $request->all();
-        $mcu = Mcu::findOrFail($id);
-
+        $poli = Poli::findOrFail($id);
+        // dd($data);
         if ($request->file('gambar')) {
-            $data['gambar'] = $request->file('gambar')->store('assets/mcu', 'public');
+            $data['gambar'] = $request->file('gambar')->store('assets/poli', 'public');
         }
         if ($request->file(null)) {
         }
 
-        $mcu->update($data);
-
-        return redirect()->route('dataMcu.index');
+        $poli->update($data);
+        return redirect()->route('dataPoli.index');
     }
 
     /**
@@ -109,9 +111,10 @@ class McuController extends Controller
      */
     public function destroy($id)
     {
-        $mcu = Mcu::findOrFail($id);
+        $poli = Poli::findOrFail($id);
 
-        $mcu->delete();
-        return redirect()->route('dataMcu.index');
+        $poli->delete();
+
+        return redirect()->route('dataPoli.index');
     }
 }
