@@ -86,6 +86,7 @@
                         <h6 class="collapse-header">MCU</h6>
                         <a class="collapse-item" href="{{ route('dataMcu.create')}}">Tambah MCU</a>
                         <a class="collapse-item" href="{{ route('dataMcu.index')}}">Data MCU</a>
+
                     </div>
                 </div>
             </li>
@@ -97,12 +98,13 @@
                 <div id="testi" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Testimoni</h6>
-                        <a class="collapse-item" href="#">Tambah Testimoni</a>
-                        <a class="collapse-item" href="#">Data Testimoni</a>
+                        <a class="collapse-item" href="{{ route('testiMcu.index')}}">Testimoni MCU</a>
+                        <a class="collapse-item" href="{{ route('testiUmum.index')}}">Testimoni Umum</a>
+
                     </div>
                 </div>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#kontak" aria-expanded="true" aria-controls="kontak">
                     <i class="fas fa-address-book"></i>
                     <span>Kontak</span>
@@ -114,7 +116,7 @@
                         <a class="collapse-item" href="#">Data Kontak</a>
                     </div>
                 </div>
-            </li>
+            </li> -->
 
             <hr class="sidebar-divider">
             <div class="sidebar-heading">

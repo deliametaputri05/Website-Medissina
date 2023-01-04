@@ -10,11 +10,11 @@ use Illuminate\Support\Facades\Storage;
 
 class Testimoni extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     protected $table = 'testimoni';
 
     protected $fillable = [
-        'nama', 'pekerjaan', 'email', 'gambar', 'pesan', 'tipe'
+        'nama', 'pekerjaan', 'email', 'gambar', 'pesan', 'tipe', 'status'
     ];
 
     public function getCreatedAtAttribute($created_at)

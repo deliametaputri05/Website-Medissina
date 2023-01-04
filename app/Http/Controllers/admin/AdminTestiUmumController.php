@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\pengunjung;
+namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TestimoniRequest;
 use Illuminate\Http\Request;
+use App\Models\Testimoni;
 
-class TestimoniController extends Controller
+class AdminTestiUmumController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,12 @@ class TestimoniController extends Controller
      */
     public function index()
     {
-        //
+        $testi = Testimoni::where('tipe', '=', 'umum')->paginate();
+
+        return view('admin.testimoni.index', [
+
+            'testi' => $testi,
+        ]);
     }
 
     /**
@@ -80,6 +87,22 @@ class TestimoniController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $testi = Testimoni::findOrFail($id);
+
+        $testi->delete();
+        return redirect()->route('testiUmum.index');
+    }
+
+    public function changeStatus($id, $status)
+    {
+        $testi = Testimoni::findOrFail($id);
+
+        $testi->status = $status;
+        $testi->save();
+
+        // dd($testi);
+
+
+        return redirect()->route('testiMcu.index');
     }
 }

@@ -9,6 +9,11 @@ use App\Http\Controllers\admin\LayananController;
 use App\Http\Controllers\admin\McuController;
 use App\Http\Controllers\admin\DokterController;
 use App\Http\Controllers\admin\PoliController;
+use App\Http\Controllers\admin\AdminTestiMcuController;
+use App\Http\Controllers\admin\AdminTestiUmumController;
+use App\Http\Controllers\pengunjung\PengunjungTestiMcuController;
+use App\Http\Controllers\pengunjung\PengunjungTestiUmumController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +43,11 @@ Route::middleware([
     Route::resource('dataMcu', McuController::class);
     Route::resource('dataDokter', DokterController::class);
     Route::resource('dataPoli', PoliController::class);
+    Route::resource('testiMcu', AdminTestiMcuController::class);
+    Route::resource('testiUmum', AdminTestiUmumController::class);
+
+    Route::get('testiMcu/{id}/status/{status}', [AdminTestiMcuController::class, 'changeStatus'])->name('testiMcu.changeStatus');
+    Route::get('testiUmum/{id}/status/{status}', [AdminTestiUmumController::class, 'changeStatus'])->name('testiUmum.changeStatus');
 });
 
 
@@ -46,7 +56,11 @@ Route::get('/tentang', [PengunjungController::class, 'tentang']);
 Route::get('/layanan', [PengunjungController::class, 'layanan']);
 Route::get('/dokter', [PengunjungController::class, 'dokter']);
 Route::get('/kontak', [PengunjungController::class, 'kontak']);
-Route::get('/mcu', [PengunjungController::class, 'mcu']);
+// Route::get('/mcu', [PengunjungController::class, 'mcu']);
+// testimoni Mcu
+Route::resource('mcu', PengunjungTestiMcuController::class);
+Route::resource('testimoni', PengunjungTestiUmumController::class);
+
 
 
 

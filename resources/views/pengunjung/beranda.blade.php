@@ -94,7 +94,7 @@
                     <div class="icon-box">
                         <div class="icon"><i class="bx bx-atom"></i></div>
                         <h4 class="title"><a href="">Medical CPMI</a></h4>
-                        <p class="description">Terdapat pelayanan MCU CPMI dengan online siska sertifikasi Kemenkes RI</p>
+                        <p class="description">Terdapat pelayanan MCU CPMI dengan online sisko sertifikasi Kemenkes RI</p>
                     </div>
 
                 </div>
@@ -102,6 +102,47 @@
 
         </div>
     </section><!-- End About Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimoni Pelayanan</h2>
+                <p>Testimoni pasien yang telah berobat pada klinik utama medissina</p>
+            </div>
+
+
+            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+
+                    @foreach($test as $testiUmum)
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-wrap">
+                            <div class="testimonial-item">
+                                <img src="storage/{{ $testiUmum->gambar}}" class="testimonial-img" alt="">
+                                <h3>{{$testiUmum->nama}}</h3>
+                                <h4>{{ $testiUmum->pekerjaan }}</h4>
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    {{ $testiUmum->pesan }}
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+                    @endforeach
+
+
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+    </section><!-- End Testimonials Section -->
+
+
     <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts">
         <div class="container">
@@ -135,8 +176,8 @@
                 <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                     <div class="count-box">
                         <i class="fas fa-users"></i>
-                        <span data-purecounter-start="0" data-purecounter-end="{{$daftar}}" data-purecounter-duration="1" class="purecounter"></span>
-                        <p>Pendaftaran</p>
+                        <span data-purecounter-start="0" data-purecounter-end="{{$testi}}" data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Testimoni</p>
                     </div>
                 </div>
 

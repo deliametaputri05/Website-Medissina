@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TestimoniRequest;
 use Illuminate\Http\Request;
+use App\Models\Testimoni;
+use App\Models\Mcu;
 
-class TestiMcuController extends Controller
+
+class AdminTestiMcuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +18,13 @@ class TestiMcuController extends Controller
      */
     public function index()
     {
-        //
+        $mcu = Mcu::paginate();
+        $testi = Testimoni::where('tipe', '=', 'mcu')->paginate();
+
+        return view('admin.mcu.testimoni.index', [
+            'mcu' => $mcu,
+            'testi' => $testi,
+        ]);
     }
 
     /**
@@ -67,9 +77,18 @@ class TestiMcuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TestimoniRequest $request, $id)
     {
-        //
+        $data = $request->all();
+        $testi = Testimoni::findOrFail($id);
+
+        $data['status'] = "disetujui";
+        $testi->update($data);
+
+        dd($testi);
+
+
+        return redirect()->route('testiMcu.index');
     }
 
     /**
@@ -80,6 +99,23 @@ class TestiMcuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $testi = Testimoni::findOrFail($id);
+
+        $testi->delete();
+        return redirect()->route('testiMcu.index');
+    }
+
+
+    public function changeStatus($id, $status)
+    {
+        $testi = Testimoni::findOrFail($id);
+
+        $testi->status = $status;
+        $testi->save();
+
+        // dd($testi);
+
+
+        return redirect()->route('testiMcu.index');
     }
 }

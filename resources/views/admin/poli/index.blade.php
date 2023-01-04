@@ -33,7 +33,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">DataTables with Hover</h6>
             </div> -->
 
-            <div class="table-responsive p-3">
+            <div class="table-responsive p-3" style="font-size: 14px;">
                 <table class="display table align-items-center table-striped table-hover text-center " id="dataTableHover">
                     <thead>
                         <tr>
@@ -61,7 +61,7 @@
                             <td>{{ $item->nama }}</td>
                             <td>
                                 <center>
-                                    <div style="width: 300px; white-space: normal; overflow: hidden; text-overflow: ellipsis;">{{ $item->deskripsi }}</div>
+                                    <div style="text-align: justify; width: 300px; white-space: normal; overflow: hidden; text-overflow: ellipsis;">{{ $item->deskripsi }}</div>
                                 </center>
                             </td>
                             <td>
@@ -77,7 +77,7 @@
                                 <br>
                             </td>
                             <td>
-                                <div class="row align-items-center" style="display: inline-flex;">
+                                <div class="row justify-content-center" style="display: inline-flex;">
 
 
 

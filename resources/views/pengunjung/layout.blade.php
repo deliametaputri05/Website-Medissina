@@ -72,7 +72,7 @@
                     <li><a class="nav-link scrollto" href="/">Beranda</a></li>
                     <!-- <li><a class="nav-link scrollto" href="/tentang">Tentang</a></li> -->
                     <li><a class="nav-link scrollto" href="/layanan">Pelayanan</a></li>
-                    <li><a class="nav-link scrollto" href="/mcu">MCU</a></li>
+                    <li><a class="nav-link scrollto" href="{{ route('mcu.index')}}">MCU</a></li>
                     <!-- <li><a class="nav-link scrollto" href="/poliklinik">Poliklinik</a></li> -->
                     <li><a class="nav-link scrollto" href="/dokter">Dokter</a></li>
                     <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>

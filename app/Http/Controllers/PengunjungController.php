@@ -8,6 +8,7 @@ use App\Models\Mcu;
 use App\Models\Poli;
 use App\Models\Dokter;
 use App\Models\Pendaftaran;
+use App\Models\Testimoni;
 
 class PengunjungController extends Controller
 {
@@ -19,8 +20,11 @@ class PengunjungController extends Controller
         $dokter = Dokter::all()->count();
         $poli = Poli::all()->count();
         $daftar = Pendaftaran::all()->count();
+        $testi = Testimoni::all()->count();
 
-        return view('pengunjung.beranda', compact('layanan', 'dokter', 'poli', 'daftar'));
+        $test = Testimoni::where('tipe', '=', 'umum')->where('status', '=', 'disetujui')->paginate();
+
+        return view('pengunjung.beranda', compact('layanan', 'dokter', 'poli', 'daftar', 'testi', 'test'));
     }
 
     public function tentang()

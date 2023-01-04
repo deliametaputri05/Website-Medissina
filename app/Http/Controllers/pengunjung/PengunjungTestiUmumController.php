@@ -5,7 +5,10 @@ namespace App\Http\Controllers\pengunjung;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class TestiMcuController extends Controller
+use App\Http\Requests\TestimoniRequest;
+use App\Models\Testimoni;
+
+class PengunjungTestiUmumController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -33,9 +36,20 @@ class TestiMcuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TestimoniRequest $request)
     {
-        //
+        $data = $request->all();
+
+        $data['tipe'] = "umum";
+        $data['status'] = "terkirim";
+        $data['gambar'] = $request->file('gambar')->store('assets/testimoni', 'public');
+        // dd($data);
+
+        Testimoni::create($data);
+
+
+
+        return redirect('/kontak');
     }
 
     /**
