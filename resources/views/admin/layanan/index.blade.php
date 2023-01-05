@@ -84,15 +84,37 @@
                                     <a href="{{ route('dataLayanan.edit', $item->id) }}" class="btn btn-info btn-sm mr-1">
                                         <i class="fas fa-edit"></i>
                                     </a>
+                                    <button id="delete" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalDelete" data-id="{{$item->id}}" data-nama="{{$item->nama}}">
 
-                                    <form action="{{ route('dataLayanan.destroy', $item->id) }}" method="POST">
-                                        {!! method_field('delete') . csrf_field() !!}
-                                        <button type="submit" data-toggle="tooltip" title="" class="btn btn-danger btn-sm" data-original-title="Delete">
-                                            <!-- onclick="return initDemos('.alert_demo_7')"    -->
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </form>
+                                        <i class="fa fa-trash"></i>
+                                    </button>
 
+
+                                    <!-- Modal Center -->
+                                    <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalCenterTitle">Hapus Data</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Yakin menghapus data <span id="nama"></span> ?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
+
+                                                    <form id="deleteLayanan" method="POST">
+                                                        {!! method_field('delete') . csrf_field() !!}
+                                                        <button type="submit" class="btn btn-primary">Delete</button>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
 
 
@@ -100,11 +122,6 @@
 
 
                                 </div>
-
-                                <!-- <a href="#" class="btn btn-danger btn-sm">
-                                    <i class="fas fa-trash"></i>
-                                </a> -->
-
 
                             </td>
 
@@ -128,18 +145,5 @@
 </div>
 <!---Container Fluid-->
 </div>
-
-
-<!-- <script>
-    // display a modal (small modal)
-    $('#deleteLyn').click(function() {
-        // event.preventDefault();
-        let href = $(this).attr('data-attr');
-        $.ajax({
-            url: href,
-            method: "DELETE",
-        })
-    });
-</script> -->
 
 @endsection

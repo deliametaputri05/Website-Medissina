@@ -32,25 +32,25 @@
 
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" class="form-control" id="nama" name="nama" aria-describedby="emailHelp" placeholder="Nama Mcu">
+                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Mcu" required>
 
                         </div>
-                        <div class="form-group">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="gambar" name="gambar">
-                                <label class="custom-file-label" for="gambar">Pilih Gambar</label>
-                            </div>
-                        </div>
+
                         <div class="form-group">
                             <label for="harga">Harga</label>
-                            <input type="text" class="form-control" id="harga" name="harga" aria-describedby="emailHelp" placeholder="Harga Mcu">
+                            <input type="text" class="form-control" id="harga" name="harga" placeholder="Harga Mcu" required>
 
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Layanan</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" name="layanan" rows="5"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" name="layanan" rows="5" required></textarea>
                         </div>
-
+                        <div class="form-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="gambar" name="gambar" required>
+                                <label class="custom-file-label" for="gambar">Pilih Gambar</label>
+                            </div>
+                        </div>
 
 
                         <div class="card-action">

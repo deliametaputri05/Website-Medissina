@@ -210,7 +210,7 @@
                     </ul>
                 </nav>
                 <!-- Topbar -->
-
+                @include('sweetalert::alert')
                 @yield('container')
                 <!-- Modal Logout -->
                 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
@@ -287,6 +287,31 @@
             $(document).ready(function() {
                 $('#dataTable').DataTable(); // ID From dataTable 
                 $('#dataTableHover').DataTable(); // ID From dataTable with Hover
+            });
+
+
+            $(document).ready(function() {
+                $(document).on('click', '#delete', function() {
+
+                    var id = $(this).data('id');
+                    var nama = $(this).data('nama');
+
+                    $('#id').text(id);
+                    $('#nama').text(nama);
+
+                    $('#deleteLayanan').attr('action', 'dataLayanan/' + id);
+                    $('#deleteDokter').attr('action', 'dataDokter/' + id);
+                    $('#deletePoli').attr('action', 'dataPoli/' + id);
+                    $('#deleteMcu').attr('action', 'dataMcu/' + id);
+                    $('#deleteTestiMcu').attr('action', 'testiMcu/' + id);
+                    $('#deleteTestiUmum').attr('action', 'testiUmum/' + id);
+
+                    // alert(id);
+
+
+                })
+
+
             });
         </script>
 </body>

@@ -33,22 +33,22 @@
 
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" class="form-control" id="nama" name="nama" value="{{ old('nama') ?? $item->nama }} " placeholder="Nama Mcu">
+                            <input type="text" class="form-control" id="nama" name="nama" value="{{ old('nama') ?? $item->nama }} " placeholder="Nama Mcu" required>
 
                         </div>
                         <div class="form-group">
                             <label for="harga">Harga</label>
-                            <input type="text" class="form-control" id="harga" name="harga" value="{{ old('harga') ?? $item->harga }} " placeholder="Harga Mcu">
+                            <input type="text" class="form-control" id="harga" name="harga" value="{{ old('harga') ?? $item->harga }} " placeholder="Harga Mcu" required>
 
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Layanan</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" value="{{ old('layanan')  ?? $item->layanan }}" name="layanan" rows="5">{{ $item->layanan }}</textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" value="{{ old('layanan')  ?? $item->layanan }}" name="layanan" rows="5" required>{{ $item->layanan }}</textarea>
                         </div>
 
                         <div class="form-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="gambar" name="gambar">
+                                <input type="file" class="custom-file-input" id="gambar" name="gambar" required>
                                 <label class="custom-file-label" for="gambar">Pilih Gambar</label>
                             </div>
                             <br> <br>

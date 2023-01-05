@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LayananRequest;
 use App\Models\Layanan;
 
+use Alert;
+
 class LayananController extends Controller
 {
     /**
@@ -47,8 +49,7 @@ class LayananController extends Controller
         // dd($data);
 
         Layanan::create($data);
-
-
+        Alert::success('Sukses', 'Berhasil menambah data layanan');
 
         return redirect()->route('dataLayanan.index');
     }
@@ -100,7 +101,7 @@ class LayananController extends Controller
 
         $layanan->update($data);
         // dd($request);
-
+        Alert::success('Sukses', 'Berhasil mengedit data Layanan');
         return redirect()->route('dataLayanan.index');
     }
 

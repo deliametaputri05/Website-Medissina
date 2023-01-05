@@ -33,17 +33,17 @@
 
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" class="form-control" id="nama" name="nama" value="{{ old('nama') ?? $item->nama }} " placeholder="Nama Layanan">
+                            <input type="text" class="form-control" id="nama" name="nama" value="{{ old('nama') ?? $item->nama }} " placeholder="Nama Layanan" required>
 
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Deskripsi</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" value="{{ old('deskripsi')  ?? $item->deskripsi }}" name="deskripsi" rows="5">{{ $item->deskripsi }}</textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" value="{{ old('deskripsi')  ?? $item->deskripsi }}" name="deskripsi" rows="5" required>{{ $item->deskripsi }}</textarea>
                         </div>
 
                         <div class="form-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="gambar" name="gambar">
+                                <input type="file" class="custom-file-input" id="gambar" name="gambar" required>
                                 <label class="custom-file-label" for="gambar">Pilih Gambar</label>
                             </div>
                             <br> <br>

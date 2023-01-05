@@ -33,7 +33,7 @@
 
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" class="form-control" id="nama" name="nama" value="{{ old('nama') ?? $item->nama }}">
+                            <input type="text" class="form-control" id="nama" name="nama" value="{{ old('nama') ?? $item->nama }}" required>
 
                         </div>
 
@@ -49,13 +49,13 @@
                         </div>
                         <div class="form-group">
                             <label for="jabatan">Jabatan</label>
-                            <input type="text" class="form-control" id="jabatan" name="jabatan" value="{{ old('jabatan') ?? $item->jabatan }}">
+                            <input type="text" class="form-control" id="jabatan" name="jabatan" value="{{ old('jabatan') ?? $item->jabatan }}" required>
 
                         </div>
 
                         <div class="form-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="gambar" name="gambar">
+                                <input type="file" class="custom-file-input" id="gambar" name="gambar" required>
                                 <label class="custom-file-label" for="gambar">Pilih Gambar</label>
                             </div>
                             <br> <br>
@@ -65,11 +65,11 @@
                         </div>
                         <div class="form-group">
                             <label for="jadwalHari">Jadwal Hari</label>
-                            <input type="text" class="form-control" id="jadwalHari" name="jadwalHari" value="{{ old('jadwalHari') ?? $item->jadwalHari }}">
+                            <input type="text" class="form-control" id="jadwalHari" name="jadwalHari" value="{{ old('jadwalHari') ?? $item->jadwalHari }}" required>
                         </div>
                         <div class="form-group">
                             <label for="jadwalWaktu">Jadwal Waktu</label>
-                            <input type="text" class="form-control" id="jadwalWaktu" name="jadwalWaktu" value="{{ old('jadwalWaktu') ?? $item->jadwalWaktu }}">
+                            <input type="text" class="form-control" id="jadwalWaktu" name="jadwalWaktu" value="{{ old('jadwalWaktu') ?? $item->jadwalWaktu }}" required>
                         </div>
 
                         <div class="card-action">

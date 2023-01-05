@@ -32,17 +32,17 @@
 
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" class="form-control" id="nama" name="nama">
+                            <input type="text" class="form-control" id="nama" name="nama" required>
 
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Deskripsi</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" name="deskripsi" rows="5"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" name="deskripsi" rows="5" required></textarea>
                         </div>
 
                         <div class="form-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="gambar" name="gambar">
+                                <input type="file" class="custom-file-input" id="gambar" name="gambar" required>
                                 <label class="custom-file-label" for="gambar">Pilih Gambar</label>
                             </div>
                         </div>
