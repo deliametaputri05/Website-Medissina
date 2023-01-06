@@ -101,7 +101,7 @@
 
         </div>
     </header><!-- End Header -->
-
+    @include('sweetalert::alert')
     @yield('container')
 
 

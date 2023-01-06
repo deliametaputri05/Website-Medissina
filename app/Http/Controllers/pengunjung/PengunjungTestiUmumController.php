@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\TestimoniRequest;
 use App\Models\Testimoni;
+use Alert;
+
 
 class PengunjungTestiUmumController extends Controller
 {
@@ -46,6 +48,7 @@ class PengunjungTestiUmumController extends Controller
         // dd($data);
 
         Testimoni::create($data);
+        Alert::success('Sukses', 'Terimakasih telah memberikan tanggapan kepada kami :)');
 
 
 

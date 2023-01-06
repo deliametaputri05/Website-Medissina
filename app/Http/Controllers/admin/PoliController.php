@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 use App\Http\Requests\PoliRequest;
 use App\Models\Poli;
 
+use Alert;
 
 class PoliController extends Controller
 {
@@ -49,8 +49,7 @@ class PoliController extends Controller
         // dd($data);
 
         Poli::create($data);
-
-
+        Alert::success('Sukses', 'Berhasil menambah data Poli');
 
         return redirect()->route('dataPoli.index');
     }
@@ -100,6 +99,7 @@ class PoliController extends Controller
         }
 
         $poli->update($data);
+        Alert::success('Sukses', 'Berhasil mengedit data Poli');
         return redirect()->route('dataPoli.index');
     }
 

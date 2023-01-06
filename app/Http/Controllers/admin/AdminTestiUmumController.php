@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TestimoniRequest;
 use Illuminate\Http\Request;
 use App\Models\Testimoni;
+use Alert;
 
 class AdminTestiUmumController extends Controller
 {
@@ -103,6 +104,7 @@ class AdminTestiUmumController extends Controller
         // dd($testi);
 
 
-        return redirect()->route('testiMcu.index');
+
+        return redirect()->route('testiUmum.index');
     }
 }

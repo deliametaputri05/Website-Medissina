@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\TestimoniRequest;
 use App\Models\Testimoni;
 use App\Models\Mcu;
+use Alert;
 
 
 class PengunjungTestiMcuController extends Controller
@@ -54,7 +55,7 @@ class PengunjungTestiMcuController extends Controller
         // dd($data);
 
         Testimoni::create($data);
-
+        Alert::success('Sukses', 'Terimakasih telah memberikan tanggapan kepada kami :) ');
 
 
         return redirect('/mcu');

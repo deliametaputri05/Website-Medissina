@@ -308,10 +308,23 @@
 
                     // alert(id);
 
+                })
+            });
+
+            $(document).ready(function() {
+                $(document).on('click', '#verifikasi', function() {
+
+                    var id = $(this).data('id');
+                    var nama = $(this).data('nama');
+
+                    $('#idTesti').text(id);
+                    $('#namaTesti').text(nama);
+
+                    $('#verifMcu').attr('href', 'testiMcu/' + id + '/status/' + 'disetujui');
+                    $('#verifUmum').attr('href', 'testiUmum/' + id + '/status/' + 'disetujui');
+
 
                 })
-
-
             });
         </script>
 </body>

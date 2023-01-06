@@ -90,9 +90,10 @@
 
                             <div class="row justify-content-center" style="display: inline-flex; width: 100px;">
                                 @if ($item->status == "terkirim")
-                                <a href="{{ route('testiUmum.changeStatus', ['id' => $item->id, 'status' => 'disetujui']) }}" class="btn btn-info btn-sm mr-1">
-                                    <i class="fas fa-edit"></i>
-                                </a>
+                                <button id="verifikasi" type="button" class="btn btn-info btn-sm mr-1" data-toggle="modal" data-target="#modalVerifikasi" data-id="{{$item->id}}" data-nama="{{$item->nama}}">
+
+                                    <i class="fas fa-check-square"></i>
+                                </button>
                                 @endif
 
 
@@ -127,6 +128,29 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Modal Verifikasi -->
+                                <div class="modal fade" id="modalVerifikasi" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalCenterTitle">Hapus Data</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Yakin verifikasi testimoni <span id="namaTesti"></span> ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
+                                                <a id="verifUmum" class="btn btn-primary"> Verifikasi</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
 
                             </div>
 

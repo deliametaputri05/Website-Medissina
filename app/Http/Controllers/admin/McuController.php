@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
 use App\Http\Requests\McuRequest;
 use App\Models\Mcu;
+use Alert;
+
 
 class McuController extends Controller
 {
@@ -48,6 +48,7 @@ class McuController extends Controller
         // dd($data);
 
         Mcu::create($data);
+        Alert::success('Sukses', 'Berhasil menambah data Mcu');
 
         return redirect()->route('dataMcu.index');
     }
@@ -97,6 +98,7 @@ class McuController extends Controller
         }
 
         $mcu->update($data);
+        Alert::success('Sukses', 'Berhasil mengedit data Mcu');
 
         return redirect()->route('dataMcu.index');
     }

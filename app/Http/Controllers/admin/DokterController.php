@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 use App\Http\Requests\DokterRequest;
 use App\Models\Dokter;
 use App\Models\Poli;
+use Alert;
 
 class DokterController extends Controller
 {
@@ -50,6 +50,7 @@ class DokterController extends Controller
         // dd($data);
 
         Dokter::create($data);
+        Alert::success('Sukses', 'Berhasil menambah data Dokter');
 
         return redirect()->route('dataDokter.index');
     }
@@ -101,6 +102,7 @@ class DokterController extends Controller
         }
 
         $dokter->update($data);
+        Alert::success('Sukses', 'Berhasil mengedit data Dokter');
 
         return redirect()->route('dataDokter.index');
     }
