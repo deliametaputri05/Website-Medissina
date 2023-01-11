@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 class Pasien extends Model
 {
@@ -11,7 +14,7 @@ class Pasien extends Model
     protected $table = "pasien";
 
     protected $fillable = [
-        'id_poli', 'id_dokter', 'nik', 'nama',
+        'id_poli', 'nik', 'nama',
         'tempatLahir', 'tglLahir', 'usia', 'jk', 'agama',
         'status', 'alamat', 'noHp', 'caraBayar', 'ktp',
         'tglBerobat', 'keluhan', 'ceklis'

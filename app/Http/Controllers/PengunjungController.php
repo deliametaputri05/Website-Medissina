@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PasienRequest;
+use App\Http\Requests\McuRequest;
+use App\Http\Requests\DaftarRequest;
 use App\Models\Layanan;
 use App\Models\Mcu;
 use App\Models\Poli;
 use App\Models\Dokter;
 use App\Models\Pendaftaran;
+use App\Models\Pasien;
 use App\Models\Testimoni;
+use DateTime;
 
 class PengunjungController extends Controller
 {
@@ -70,5 +75,14 @@ class PengunjungController extends Controller
     {
 
         return view('pengunjung.kontak');
+    }
+
+    public function store(Request $request)
+    {
+        $awal = new DateTime('2001-05-10');
+        $akhir = new DateTime('today');
+        $tahun = $akhir->diff($awal)->y;
+
+        echo "Umur : " . $tahun;
     }
 }

@@ -13,6 +13,8 @@ use App\Http\Controllers\admin\AdminTestiMcuController;
 use App\Http\Controllers\admin\AdminTestiUmumController;
 use App\Http\Controllers\pengunjung\PengunjungTestiMcuController;
 use App\Http\Controllers\pengunjung\PengunjungTestiUmumController;
+use App\Http\Controllers\pengunjung\DaftarController;
+
 
 
 /*
@@ -56,10 +58,14 @@ Route::get('/tentang', [PengunjungController::class, 'tentang']);
 Route::get('/layanan', [PengunjungController::class, 'layanan']);
 Route::get('/dokter', [PengunjungController::class, 'dokter']);
 Route::get('/kontak', [PengunjungController::class, 'kontak']);
+
 // Route::get('/mcu', [PengunjungController::class, 'mcu']);
 // testimoni Mcu
+
 Route::resource('mcu', PengunjungTestiMcuController::class);
 Route::resource('testimoni', PengunjungTestiUmumController::class);
+Route::resource('daftar', DaftarController::class);
+Route::resource('pengunjung', PengunjungController::class);
 
 
 
