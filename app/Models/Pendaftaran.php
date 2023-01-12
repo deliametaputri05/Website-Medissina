@@ -2,16 +2,25 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 class Pendaftaran extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     protected $table = 'pendaftaran';
+
     protected $fillable = [
         'id_pasien', 'status'
     ];
+
+    public function pasien()
+    {
+        return $this->hasOne(Pasien::class, 'id', 'id_pasien');
+    }
 
     public function getCreatedAtAttribute($created_at)
     {

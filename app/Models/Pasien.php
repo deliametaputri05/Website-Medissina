@@ -21,6 +21,11 @@ class Pasien extends Model
 
     ];
 
+    public function poli()
+    {
+        return $this->hasOne(Poli::class, 'id', 'id_poli');
+    }
+
     public function getCreatedAtAttribute($created_at)
     {
         return Carbon::parse($created_at)

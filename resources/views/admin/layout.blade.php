@@ -130,11 +130,11 @@
                 <div id="pasien" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Pasien</h6>
-                        <a class="collapse-item" href="login.html">Data Pasien</a>
+                        <a class="collapse-item" href="{{ route('pasien.index') }}">Data Pasien</a>
 
                     </div>
                 </div>
-            </li>
+                <!-- </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#daftar" aria-expanded="true" aria-controls="daftar">
                     <i class="fas fa-file-contract"></i>
@@ -147,10 +147,10 @@
 
                     </div>
                 </div>
-            </li>
+            </li> -->
 
-            <hr class="sidebar-divider">
-            <div class="version" id="version-ruangadmin"></div>
+                <hr class="sidebar-divider">
+                <div class="version" id="version-ruangadmin"></div>
         </ul>
         <!-- Sidebar -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -305,6 +305,7 @@
                     $('#deleteMcu').attr('action', 'dataMcu/' + id);
                     $('#deleteTestiMcu').attr('action', 'testiMcu/' + id);
                     $('#deleteTestiUmum').attr('action', 'testiUmum/' + id);
+                    $('#deletePasien').attr('action', 'pasien/' + id);
 
                     // alert(id);
 
@@ -322,6 +323,7 @@
 
                     $('#verifMcu').attr('href', 'testiMcu/' + id + '/status/' + 'disetujui');
                     $('#verifUmum').attr('href', 'testiUmum/' + id + '/status/' + 'disetujui');
+                    $('#verifPasien').attr('href', 'pasien/' + id + '/status/' + 'Terverifikasi');
 
 
                 })

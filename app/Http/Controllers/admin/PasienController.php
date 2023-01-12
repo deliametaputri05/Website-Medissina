@@ -5,9 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Requests\PasienRequest;
-use App\Models\Dokter;
-use App\Models\Poli;
+use App\Models\Pasien;
+use App\Models\Pendaftaran;
 
 class PasienController extends Controller
 {
@@ -18,11 +17,9 @@ class PasienController extends Controller
      */
     public function index()
     {
-        $dokter = Dokter::with(['poli'])->paginate();
+        $pasien = Pendaftaran::with(['pasien'])->paginate();
 
-        return view('admin.pasien.index', [
-            'dokter' => $dokter
-        ]);
+        return view('admin.pasien.index', ['pasien' => $pasien]);
     }
 
     /**
@@ -32,8 +29,6 @@ class PasienController extends Controller
      */
     public function create()
     {
-        $poli = Poli::all();
-        return view('admin.pasien.create', compact('poli'));
     }
 
     /**
@@ -42,16 +37,8 @@ class PasienController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PasienRequest $request)
+    public function store()
     {
-        $data = $request->all();
-
-        $data['ktp'] = $request->file('ktp')->store('assets/pasien', 'public');
-        // dd($data);
-
-        Pasien::create($data);
-
-        return redirect()->route('dataPasien.index');
     }
 
     /**
@@ -73,13 +60,6 @@ class PasienController extends Controller
      */
     public function edit($id)
     {
-        $dokter = Dokter::findOrFail($id);
-        $poli = Poli::all();
-
-        return view('admin.dokter.edit', [
-            'item' => $dokter,
-            'poli' => $poli
-        ]);
     }
 
     /**
@@ -102,6 +82,28 @@ class PasienController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $pasien = Pasien::leftJoin('pendaftaran', 'pasien.id', '=', 'pendaftaran.id_pasien')->where('pasien.id', $id);
+        $daftar = Pendaftaran::where('id_pasien', $id);
+
+        // dd($daftar);
+
+        $pasien->delete();
+        $daftar->delete();
+        return redirect()->route('pasien.index');
+    }
+
+
+    public function changeStatus($id, $status)
+    {
+        $daftar = Pendaftaran::findOrFail($id);
+
+        $daftar->status = $status;
+        $daftar->save();
+
+        // dd($testi);
+
+
+        return redirect()->route('pasien.index');
     }
 }

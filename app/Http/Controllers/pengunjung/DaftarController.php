@@ -8,8 +8,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PasienRequest;
 
 use App\Models\Poli;
+use App\Models\Pendaftaran;
 use App\Models\Pasien;
 use Alert;
+use BaconQrCode\Renderer\Path\Path;
 use DateTime;
 
 use Carbon;
@@ -53,36 +55,36 @@ class DaftarController extends Controller
         $akhir = new DateTime('today');
         $tahun = $akhir->diff($awal)->y;
         $bulan = $akhir->diff($awal)->m;
-        $usia = $tahun . " tahun";
+        $usia = $tahun . " Th";
 
 
-        Pasien::create([
-            'id_poli' => $request->id_poli,
-            'nik' => $request->nik,
-            'nama' => $request->nama,
-            'tempatLahir' => $request->tempatLahir,
-            'tglLahir' => $request->tglLahir,
-            'usia' => $usia,
-            'jk' => $request->jk,
-            'agama' => $request->agama,
-            'status' => $request->status,
-            'alamat' => $request->alamat,
-            'noHp' => $request->noHp,
-            'caraBayar' => $request->caraBayar,
-            'ktp' => $request->file('ktp')->store('assets/ktp', 'public'),
-            'tglBerobat' => $request->tglBerobat,
-            'keluhan' => $request->keluhan,
-            'ceklis' => $request->ceklis
-        ]);
+        $pasien = new Pasien;
 
+        $pasien->id_poli = $request->id_poli;
+        $pasien->nik = $request->nik;
+        $pasien->nama = $request->nama;
+        $pasien->tempatLahir = $request->tempatLahir;
+        $pasien->tglLahir = $request->tglLahir;
+        $pasien->usia = $usia;
+        $pasien->jk = $request->jk;
+        $pasien->agama = $request->agama;
+        $pasien->status = $request->status;
+        $pasien->alamat = $request->alamat;
+        $pasien->noHp = $request->noHp;
+        $pasien->caraBayar = $request->caraBayar;
+        $pasien->ktp = $request->file('ktp')->store('assets/ktp', 'public');
+        $pasien->tglBerobat = $request->tglBerobat;
+        $pasien->keluhan = $request->keluhan;
+        $pasien->ceklis = $request->ceklis;
+        $pasien->save();
 
-        // $data['ktp'] = $request->file('ktp')->store('assets/ktp', 'public');
+        $daftar = new Pendaftaran;
 
-        // dd($data);
-        // $data->save();
+        $daftar->id_pasien = $pasien->id;
+        $daftar->status = "Terdaftar";
+        $daftar->save();
+
         Alert::success('Berhasil daftar berobat', 'Silahkan untuk daftar ulang di loket pendaftaran di tanggal berobat');
-
-
 
         return redirect('/daftar');
     }

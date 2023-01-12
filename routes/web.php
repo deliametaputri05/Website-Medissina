@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\DokterController;
 use App\Http\Controllers\admin\PoliController;
 use App\Http\Controllers\admin\AdminTestiMcuController;
 use App\Http\Controllers\admin\AdminTestiUmumController;
+use App\Http\Controllers\admin\PasienController;
 use App\Http\Controllers\pengunjung\PengunjungTestiMcuController;
 use App\Http\Controllers\pengunjung\PengunjungTestiUmumController;
 use App\Http\Controllers\pengunjung\DaftarController;
@@ -47,9 +48,11 @@ Route::middleware([
     Route::resource('dataPoli', PoliController::class);
     Route::resource('testiMcu', AdminTestiMcuController::class);
     Route::resource('testiUmum', AdminTestiUmumController::class);
+    Route::resource('pasien', PasienController::class);
 
     Route::get('testiMcu/{id}/status/{status}', [AdminTestiMcuController::class, 'changeStatus'])->name('testiMcu.changeStatus');
     Route::get('testiUmum/{id}/status/{status}', [AdminTestiUmumController::class, 'changeStatus'])->name('testiUmum.changeStatus');
+    Route::get('pasien/{id}/status/{status}', [PasienController::class, 'changeStatus'])->name('pasien.changeStatus');
 });
 
 

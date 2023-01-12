@@ -81,7 +81,7 @@
                             @endif
 
                             @if ($item->status == "terkirim")
-                            <span class="badge badge-warning" style="font-size: 14px;">{{ $item->status  }}</span> </button>
+                            <span class="badge badge-warning" style="font-size: 14px;">{{ $item->status  }}</span>
 
                             @endif
 
@@ -134,7 +134,7 @@
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalCenterTitle">Hapus Data</h5>
+                                                <h5 class="modal-title" id="exampleModalCenterTitle">Verifikasi Data</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>

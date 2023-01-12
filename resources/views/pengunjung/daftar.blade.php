@@ -163,11 +163,4 @@
 <!-- <--End Appointment Section -->
 
 
-<div>
-    <form action="{{route('pengunjung.store')}}" method="post">
-        @csrf
-
-        <button type="submit">test</button>
-    </form>
-</div>
 @endsection
