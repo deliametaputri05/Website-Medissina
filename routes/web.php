@@ -41,6 +41,8 @@ Route::middleware([
 
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
 
+    Route::resource('pasien', PasienController::class);
+    // Route::get('{id}', [PasienController::class, 'show'])->name('pasien . detail');
     Route::resource('user', UserController::class);
     Route::resource('dataLayanan', LayananController::class);
     Route::resource('dataMcu', McuController::class);
@@ -48,7 +50,7 @@ Route::middleware([
     Route::resource('dataPoli', PoliController::class);
     Route::resource('testiMcu', AdminTestiMcuController::class);
     Route::resource('testiUmum', AdminTestiUmumController::class);
-    Route::resource('pasien', PasienController::class);
+
 
     Route::get('testiMcu/{id}/status/{status}', [AdminTestiMcuController::class, 'changeStatus'])->name('testiMcu.changeStatus');
     Route::get('testiUmum/{id}/status/{status}', [AdminTestiUmumController::class, 'changeStatus'])->name('testiUmum.changeStatus');

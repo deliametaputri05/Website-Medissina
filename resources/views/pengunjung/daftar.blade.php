@@ -66,12 +66,12 @@
                     <label for="agama" class="mb-2" style="font-size: 15px; font-weight: bold;">Agama</label>
                     <select name="agama" id="agama" class="form-select" required>
                         <option value=""> Pilih Agama </option>
-                        <option value="islam">Islam</option>
-                        <option value="protestan">Protestan</option>
-                        <option value="katolik">Katolik</option>
-                        <option value="hindu">Hindu</option>
-                        <option value="budha">Budha</option>
-                        <option value="kong hu chu">Kong Hu Chu</option>
+                        <option value="Islam">Islam</option>
+                        <option value="Protestan">Protestan</option>
+                        <option value="Katolik">Katolik</option>
+                        <option value="Hindu">Hindu</option>
+                        <option value="Budha">Budha</option>
+                        <option value="Kong hu chu">Kong Hu Chu</option>
 
                     </select>
 
@@ -80,9 +80,9 @@
                     <label for="status" class="mb-2" style="font-size: 15px; font-weight: bold;">Status Perkawinan</label>
                     <select name="status" id="status" class="form-select" required>
                         <option value=""> Pilih Status Perkawinan </option>
-                        <option value="belum menikah">Belum Menikah</option>
-                        <option value="menikah">Menikah</option>
-                        <option value="janda/duda">Janda / Duda</option>
+                        <option value="Belum menikah">Belum Menikah</option>
+                        <option value="Menikah">Menikah</option>
+                        <option value="Janda/Duda">Janda / Duda</option>
 
                     </select>
 
@@ -104,8 +104,8 @@
                     <label for="caraBayar" class="mb-2" style="font-size: 15px; font-weight: bold;">Jenis Bayar</label>
                     <select name="caraBayar" id="caraBayar" class="form-select" required>
                         <option value=""> Pilih Jenis Bayar </option>
-                        <option value="umum">UMUM</option>
-                        <option value="bpjs">BPJS</option>
+                        <option value="UMUM">UMUM</option>
+                        <option value="BPJS">BPJS</option>
 
                     </select>
 
@@ -114,8 +114,8 @@
                     <label for="ceklis" class="mb-2" style="font-size: 15px; font-weight: bold;">Apakah sudah pernah berobat di Medissina?</label>
                     <select name="ceklis" id="ceklis" class="form-select" required>
                         <!-- <option value=""> Pilih Jenis Bayar </option> -->
-                        <option value="belum">Belum</option>
-                        <option value="sudah">Sudah</option>
+                        <option value="Belum">Belum</option>
+                        <option value="Sudah">Sudah</option>
 
                     </select>
 

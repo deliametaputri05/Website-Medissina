@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Pasien;
 use App\Models\Pendaftaran;
+use Carbon;
 
 class PasienController extends Controller
 {
@@ -49,7 +50,17 @@ class PasienController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Pendaftaran::findOrFail($id);
+
+        $ktp =  $data->pasien->ktp;
+        $date =  Carbon\Carbon::parse($data->pasien->tglLahir)->format('d-m-Y');
+        $tglBerobat =  Carbon\Carbon::parse($data->pasien->tglBerobat)->format('d-m-Y');
+        // $date = $pasien->tglLahir->format('d-m-Y');
+
+
+        // dd($dt);
+
+        return view('admin.pasien.detail', ['data' => $data, 'date' => $date, 'ktp' => $ktp, 'tglBerobat' => $tglBerobat]);
     }
 
     /**
@@ -104,6 +115,6 @@ class PasienController extends Controller
         // dd($testi);
 
 
-        return redirect()->route('pasien.index');
+        return back();
     }
 }

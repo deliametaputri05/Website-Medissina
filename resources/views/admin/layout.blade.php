@@ -326,6 +326,7 @@
                     $('#verifPasien').attr('href', 'pasien/' + id + '/status/' + 'Terverifikasi');
 
 
+
                 })
             });
         </script>

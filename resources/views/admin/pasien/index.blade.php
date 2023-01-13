@@ -18,15 +18,15 @@
 
     <!-- DataTable with Hover -->
     <div class="col-lg-12">
-        <div>
+        <!-- <div>
             <a href="{{ route('dataDokter.create')}}" class="btn btn-primary btn-icon-split">
                 <span class="icon text-white-50">
                     <i class="fas fa-plus"></i>
                 </span>
                 <span class="text">Tambah Data</span>
             </a>
-        </div>
-        <br>
+        </div> -->
+        <!-- <br> -->
 
         <div class="card mb-4">
             <!-- <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -77,7 +77,7 @@
                             <td>
                                 <div class="row justify-content-center" style="display: inline-flex;">
 
-                                    <a href="/" class="btn btn-info btn-sm mr-1">
+                                    <a href="{{ route('pasien.show', $item->id)}}" class="btn btn-info btn-sm mr-1">
                                         <i class="fa fa-user"></i>
                                     </a>
 
