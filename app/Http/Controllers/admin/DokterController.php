@@ -118,6 +118,7 @@ class DokterController extends Controller
         $dokter = Dokter::findOrFail($id);
 
         $dokter->delete();
+        Alert::success('Sukses', 'Berhasil menghapus data Dokter');
         return redirect()->route('dataDokter.index');
     }
 }

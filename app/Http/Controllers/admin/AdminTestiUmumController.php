@@ -91,6 +91,7 @@ class AdminTestiUmumController extends Controller
         $testi = Testimoni::findOrFail($id);
 
         $testi->delete();
+        Alert::success('Sukses', 'Berhasil menghapus data Testi Umum');
         return redirect()->route('testiUmum.index');
     }
 
@@ -104,7 +105,7 @@ class AdminTestiUmumController extends Controller
         // dd($testi);
 
 
-
+        Alert::success('Sukses', 'Berhasil verifikasi Testi Umum');
         return redirect()->route('testiUmum.index');
     }
 }

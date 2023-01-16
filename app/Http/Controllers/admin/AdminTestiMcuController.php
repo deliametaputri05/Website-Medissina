@@ -7,6 +7,7 @@ use App\Http\Requests\TestimoniRequest;
 use Illuminate\Http\Request;
 use App\Models\Testimoni;
 use App\Models\Mcu;
+use Alert;
 
 
 class AdminTestiMcuController extends Controller
@@ -102,6 +103,8 @@ class AdminTestiMcuController extends Controller
         $testi = Testimoni::findOrFail($id);
 
         $testi->delete();
+
+        Alert::success('Sukses', 'Berhasil menghapus data Testi Mcu');
         return redirect()->route('testiMcu.index');
     }
 
@@ -114,6 +117,7 @@ class AdminTestiMcuController extends Controller
         $testi->save();
 
         // dd($testi);
+        Alert::success('Sukses', 'Berhasil verifikasi Testi Mcu');
 
 
         return redirect()->route('testiMcu.index');

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Pasien;
 use App\Models\Pendaftaran;
 use Carbon;
+use Alert;
 
 class PasienController extends Controller
 {
@@ -101,6 +102,7 @@ class PasienController extends Controller
 
         $pasien->delete();
         $daftar->delete();
+        Alert::success('Sukses', 'Berhasil menghapus data Pasien');
         return redirect()->route('pasien.index');
     }
 
@@ -113,7 +115,7 @@ class PasienController extends Controller
         $daftar->save();
 
         // dd($testi);
-
+        Alert::success('Sukses', 'Berhasil verifikasi pendaftaran Pasien');
 
         return back();
     }

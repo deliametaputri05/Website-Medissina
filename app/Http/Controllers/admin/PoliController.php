@@ -114,6 +114,7 @@ class PoliController extends Controller
         $poli = Poli::findOrFail($id);
 
         $poli->delete();
+        Alert::success('Sukses', 'Berhasil menghapus data Layanan');
 
         return redirect()->route('dataPoli.index');
     }

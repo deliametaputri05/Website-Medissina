@@ -116,6 +116,7 @@ class LayananController extends Controller
         $layanan = Layanan::findOrFail($id);
         // dd($layanan);
         $layanan->delete();
+        Alert::success('Sukses', 'Berhasil menghapus data Layanan');
 
         return redirect()->route('dataLayanan.index');
     }

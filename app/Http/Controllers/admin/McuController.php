@@ -114,6 +114,7 @@ class McuController extends Controller
         $mcu = Mcu::findOrFail($id);
 
         $mcu->delete();
+        Alert::success('Sukses', 'Berhasil mengedit data Mcu');
         return redirect()->route('dataMcu.index');
     }
 }
